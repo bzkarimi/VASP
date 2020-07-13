@@ -8,10 +8,9 @@ In order to run **VASP**, you need 4 input files: **INCAR** (contains calculatio
 
 ## **INCAR**:
 
-1. __ISTART__ = 0             | 0=new, 1=continue from WAVECAR with const E cut-off
-                         2=continue from WAVECAR with const basis |
+1. **ISTART** = Initial guess of the orbitals &nbsp; &nbsp; | 0=new, 1=continue from WAVECAR with const E cut-off, 2=continue from WAVECAR with const basis |
 
-ICHARG = 2             | 0=from orbitals, 1=read from CHGCAR, 2=from atomic charges
+2. **ICHARG** = 2             | 0=from orbitals, 1=read from CHGCAR, 2=from atomic charges
                         +10=non-scf(const)
                          11=to get evalue for band plots or DOS read from CHGCAR |
 
