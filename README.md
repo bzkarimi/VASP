@@ -105,8 +105,6 @@ In order to run **VASP**, you need 4 input files: **INCAR** (contains calculatio
 
 ### **Functionals**:
 
-&nbsp; &nbsp;
-
 24. **GGA** = Override the type of density functional specified in the POTCAR
 
 * | default: PBE = PE |
@@ -114,6 +112,8 @@ In order to run **VASP**, you need 4 input files: **INCAR** (contains calculatio
 25. **LHFCALC** = Switch on Hybrid and Hartree-Fock type calculations
 
 * | .FALSE. or .TRUE. |
+
+&nbsp; &nbsp;
 
 * **HF** Setting:
 * LHFCALC = .TRUE.       
