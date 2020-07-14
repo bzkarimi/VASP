@@ -331,57 +331,57 @@ Automatically generated mesh (gamma-K)
 
 Reciprocal lattice
 
-    0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         1
+0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         1
+   
+0.09090909090909 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
     
-    0.09090909090909 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
+0.18181818181818 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
     
-    0.18181818181818 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
+0.27272727272727 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
     
-    0.27272727272727 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
+0.36363636363636 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
     
-    0.36363636363636 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
+0.45454545454546 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
     
-    0.45454545454546 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
+0.09090909090909 &nbsp; &nbsp; &nbsp;   0.09090909090909 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
     
-    0.09090909090909 &nbsp; &nbsp; &nbsp;   0.09090909090909 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
+0.18181818181818 &nbsp; &nbsp; &nbsp;   0.09090909090909 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;        12
     
-    0.18181818181818 &nbsp; &nbsp; &nbsp;   0.09090909090909 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;        12
+0.27272727272727 &nbsp; &nbsp; &nbsp;   0.09090909090909 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;        12
     
-    0.27272727272727 &nbsp; &nbsp; &nbsp;   0.09090909090909 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;        12
+0.36363636363636 &nbsp; &nbsp; &nbsp;   0.09090909090909 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;        12
     
-    0.36363636363636 &nbsp; &nbsp; &nbsp;   0.09090909090909 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;        12
+0.45454545454546 &nbsp; &nbsp; &nbsp;   0.09090909090909 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
     
-    0.45454545454546 &nbsp; &nbsp; &nbsp;   0.09090909090909 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
+0.18181818181818 &nbsp; &nbsp; &nbsp;   0.18181818181818 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
     
-    0.18181818181818 &nbsp; &nbsp; &nbsp;   0.18181818181818 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
+0.27272727272727 &nbsp; &nbsp; &nbsp;   0.18181818181818 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;        12
     
-    0.27272727272727 &nbsp; &nbsp; &nbsp;   0.18181818181818 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;        12
+0.36363636363636 &nbsp; &nbsp; &nbsp;   0.18181818181818 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;        12
     
-    0.36363636363636 &nbsp; &nbsp; &nbsp;   0.18181818181818 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;        12
+0.27272727272727 &nbsp; &nbsp; &nbsp;   0.27272727272727 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
     
-    0.27272727272727 &nbsp; &nbsp; &nbsp;   0.27272727272727 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
+0.36363636363636 &nbsp; &nbsp; &nbsp;   0.27272727272727 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
     
-    0.36363636363636 &nbsp; &nbsp; &nbsp;   0.27272727272727 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
+0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0 
     
-    0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0 
+0.03703703703704 &nbsp; &nbsp; &nbsp;   0.03703703703704 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0 
     
-    0.03703703703704 &nbsp; &nbsp; &nbsp;   0.03703703703704 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0 
+0.07407407407407 &nbsp; &nbsp; &nbsp;   0.07407407407407 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0
     
-    0.07407407407407 &nbsp; &nbsp; &nbsp;   0.07407407407407 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0
+0.11111111111111 &nbsp; &nbsp; &nbsp;   0.11111111111111 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0
     
-    0.11111111111111 &nbsp; &nbsp; &nbsp;   0.11111111111111 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0
+0.14814814814814 &nbsp; &nbsp; &nbsp;   0.14814814814814 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0
     
-    0.14814814814814 &nbsp; &nbsp; &nbsp;   0.14814814814814 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0
+0.18518518518518 &nbsp; &nbsp; &nbsp;   0.18518518518518 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0
     
-    0.18518518518518 &nbsp; &nbsp; &nbsp;   0.18518518518518 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0
-    
-    0.22222222222222 &nbsp; &nbsp; &nbsp;   0.22222222222222 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0
-    
-    0.25925925925926 &nbsp; &nbsp; &nbsp;   0.25925925925926 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0
-    
-    0.29629629629629 &nbsp; &nbsp; &nbsp;   0.29629629629629 &nbsp; &nbsp; &nbsp;   0.00000000000000     &nbsp; &nbsp; &nbsp;        0
-    
-    0.33333333333333 &nbsp; &nbsp; &nbsp;   0.33333333333333 &nbsp; &nbsp; &nbsp;   0.00000000000000     &nbsp; &nbsp; &nbsp;        0
+0.22222222222222 &nbsp; &nbsp; &nbsp;   0.22222222222222 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0
+
+0.25925925925926 &nbsp; &nbsp; &nbsp;   0.25925925925926 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0
+
+0.29629629629629 &nbsp; &nbsp; &nbsp;   0.29629629629629 &nbsp; &nbsp; &nbsp;   0.00000000000000     &nbsp; &nbsp; &nbsp;        0 
+
+0.33333333333333 &nbsp; &nbsp; &nbsp;   0.33333333333333 &nbsp; &nbsp; &nbsp;   0.00000000000000     &nbsp; &nbsp; &nbsp;        0
 
 ## **Work Function Calculations**:
 
