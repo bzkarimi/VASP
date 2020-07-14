@@ -145,17 +145,28 @@ In order to run **VASP**, you need 4 input files: **INCAR** (contains calculatio
 
 ## **POSCAR**:
 
-Pt2Si cluster isolated from MgO                                      comment line
+Pt2Si cluster isolated from MgO &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; comment line
+
    1.00000000000000                                                  universal scaling factor
+   
     12.6256980228000000    0.0000000000000000    0.0000000000000000  first  Bravais lattice vector
+    
      0.0000000000000000   12.6256980228000000    0.0000000000000000  second Bravais lattice vector
+     
      0.0000000000000000    0.0000000000000000   30.0000000000000000  third  Bravais lattice vector
+     
    Si    Pt                                                          elements
+   
      1    2                                                          num of each element
+     
 Selective dynamics                                                   for relaxing some coordinates, F=fixed, T=relax
-Cartesian
+
+Cartesian                                                            direct or cart (only first letter is significant)
+
  4.210900000000    4.218200000000   12.610000000000       F     F    T
+ 
  6.205100000000    4.215700000000   13.363500000000       T     T    F
+ 
  2.216900000000    4.239300000000   13.364400000000       F     F    F
 
 * The positions can be given in direct (fractional) or Cartesian coordinates. Note that the lattice vectors are always scaled by the universal scaling factor.
