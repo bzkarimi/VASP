@@ -188,13 +188,13 @@ Monkhorst Park &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;      ! M us
 0  0  0   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;           ! shift (usually 0 0 0) = origin of the k-mesh, M-P without shift = Gamma with a 0.5 0.5 
 0.5 shift
 
-* For very large mesh it takes a lot of cpu-time to generate the mesh. Therefore if you want to use the same k-mesh very frequently do the automatic generation only once and copy the file IBZKPT to the file KPOINTS.
+* For very large mesh it takes a lot of cpu-time to generate the mesh. Therefore if you want to use the same k-mesh very frequently do the automatic generation only once and copy the file **IBZKPT** to the file **KPOINTS**.
 
 ### For band structure calculations:
 
 K-Points     &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! comment
 
-40           &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! 40 intersections: 10 points between each gamma/X/W
+40           &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! 40 intersections: 10 points between each segment of gamma-X-W-gamma closed path
 
 Line-mode    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        
 
@@ -284,6 +284,39 @@ cart         &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! cart
 
 
 ## **Band Structure Calculations**:
+
+1. PBE functional
+
+* **Step 1**: Perform a relaxation calculation first
+
+* **Step 2**: Perform a large enough k-point single point calculation and save **WAVECAR** and **CHGCAR**
+
+* **Step 3**: Perform a non-SCF calculation by fixing the charge density: ICHARG = 11
+
+
+2. Hybrid functional such as PBE0/HSE06: Some special care is needed. 
+
+* **Step 0**: Relax the structure with PBE and save **WAVECAR**.
+
+* **Step 1**: Perform SCF with PBE0
+
+* Always start with a GGA WAVECAR such as PBE as your initial guess.
+* Perform a large enough k-point single point calculation and save **WAVECAR** and **CHGCAR**
+
+* **Step 2**: Perform Non-SCF with PBE0 (using the **WAVECAR** and fixing the charge density (CHGCAR) from step 1)
+
+* Copy **IBZKPT** from step 1 to **KPOINTS**
+
+* Edit **KPOINTS** by adding the desired points but with 0 weight.
+
+* Set NELMIN to at least 5 in INCAR to make sure that zero weight k-points do not enter the convergence criterion
+
+* Set ALGO = NORMAL
+
+* Plot EIGENVAL without non-zero weight k-points (as these are not part of the band structure). 
+
+* You can split the band structure calculations in segments (instead of doing the whole path at the same time) and run separately.
+
 
 ## **Work Function Calculations**:
 
