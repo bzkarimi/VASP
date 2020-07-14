@@ -157,13 +157,13 @@ Pt2Si cluster isolated from MgO &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &
      
    Si  &nbsp; &nbsp; &nbsp;  Pt &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;    ! elements
    
-   1 &nbsp; &nbsp; &nbsp;   2 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; num of each element
+   1 &nbsp; &nbsp; &nbsp;   2 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; !num of each element
      
 Selective dynamics &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! for relaxing some coordinates, F=fixed, T=relax
 
 Cartesian &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! direct (fractional) or cartesian (only first letter is significant)
 
- 4.210900000000  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  4.218200000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  12.610000000000  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;     F &nbsp; &nbsp; &nbsp;    F    T
+ 4.210900000000  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  4.218200000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  12.610000000000  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;     F &nbsp; &nbsp; &nbsp;    F  &nbsp; &nbsp; &nbsp;  T
  
  6.205100000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;   4.215700000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  13.363500000000  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;     T &nbsp; &nbsp; &nbsp;    T  &nbsp; &nbsp; &nbsp;  F
  
@@ -178,24 +178,15 @@ Cartesian &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! direct (fracti
 
 ## **Bader Charge Calculations**:
 
-LAECHG = .TRUE.        | for Bader charge analysis;
-                         the core charge will be written so that it would be used in Bader |
-                         In quantum espresso it is recommended to perform
-                         the bader analysis only if PAW pseudopotentials are employed.
-                         I made some test using QE and ultra-soft pseudopotentials
-                         (what we usually use) and VASP with PAW pseudop.
-                         The results are very similar.
-                         However, for VASP there is a correction to consider also the core electrons.
-                         In this case I obtained different results (and they make more sense),
-                         specially with atoms such as B or Al.
-                         So, I think this is the best way to proceed:
+* LAECHG = .TRUE.        
 
-                         To use this correction you need to include in your INCAR file:
-                         LAECHG=.TRUE.
+* For Bader charge analysis the core charge will be written so that it would be used in Bader. In quantum espresso it is recommended to perform the bader analysis only if PAW pseudopotentials are employed. Elisa made some test using QE and ultra-soft pseudopotentials (what we usually use) and VASP with PAW pseudop. The results are very similar. However, for VASP there is a correction to consider also the core electrons. In this case Elisa obtained different results (and they make more sense), specially with atoms such as B or Al. 
 
-                         Once the calculation is done:
-                         ./chgsum.pl AECCAR0 AECCAR2
-                         ./bader CHGCAR -ref CHGCAR_sum
+* So the best way to proceed: To use this correction you need to include in your INCAR file: LAECHG=.TRUE.
+
+* Once the calculation is done to extract the charges you need vtst-scripts in **VASPHOME**:
+* ./chgsum.pl AECCAR0 AECCAR2
+* ./bader CHGCAR -ref CHGCAR_sum
 
 ## **AIMD Calculations**:
 
