@@ -8,21 +8,27 @@ In order to run **VASP**, you need 4 input files: **INCAR** (contains calculatio
 
 ## **INCAR**:
 
-1. **ISTART** = Initial guess of the orbitals &nbsp; &nbsp; | 0=new, 1=continue from WAVECAR with const E cut-off, 2=continue from WAVECAR with const basis |
+1. **ISTART** = Initial guess of the orbitals
 
-2. **ICHARG** = 2             | 0=from orbitals, 1=read from CHGCAR, 2=from atomic charges
-                        +10=non-scf(const)
-                         11=to get evalue for band plots or DOS read from CHGCAR |
+| 0=new, 1=continue from WAVECAR with const E cut-off, 2=continue from WAVECAR with const basis |
 
-LCHARG = .FALSE.       | whether to save CHGCAR or not |
+2. **ICHARG** = Initial guess of charge density           
 
-SYSTEM = pt2si-mgo     | name |
+| 0=from orbitals, 1=read from CHGCAR, 2=from atomic charges, +10=non-scf(const), 11=to get evalue for band plots or DOS read from CHGCAR |
 
-ENCUT  = 450           | PW cut-off E in eV |
+3. **LCHARG** = Whether to save CHGCAR or not       
 
-LREAL  = .FALSE.       | real space projection: false or Auto
-                         for large supercells or hybrid functionals 'Auto'
-                         is recommended (faster with a negligible loss in accuracy) |
+| .FALSE. or .TRUE. |
+
+4. **SYSTEM** = Name of the system ( for example pt4sn3-sio2)
+
+5. **ENCUT**  = Plane Wave cut-off Eenergy in eV 
+
+6. **LREAL**  = Real space projection 
+
+| .FALSE. or .AUTO. |
+
+**Note:**: For large supercells or hybrid functionals 'Auto' is recommended (faster with a negligible loss in accuracy)
 
 ISMEAR = 0             | 0=gaussian, -1=fermi, -4=tetrahedron, -5=blochl |
 
