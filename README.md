@@ -1,6 +1,6 @@
 # VASP Guideline
 
-Basic notes on how to use **VASP** 
+Practical guide on how to use **VASP** 
 
 ## **General comments regarding VASP**:
 
@@ -296,7 +296,7 @@ cart         &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! cart
 &nbsp; &nbsp; &nbsp;
 
 
-### Hybrid functional such as PBE0/HSE06: Some special care is needed. 
+### Hybrid functionals such as PBE0/HSE06: Some special care is needed. 
 
 * **Step 0**: Relax the structure with PBE and save **WAVECAR**.
 
@@ -327,8 +327,8 @@ cart         &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! cart
 
 Automatically generated mesh (gamma-K)
 
-      26
-      
+26
+
 Reciprocal lattice
 
     0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         1
