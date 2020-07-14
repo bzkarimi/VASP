@@ -157,7 +157,7 @@ Pt2Si cluster isolated from MgO &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &
      
    Si  &nbsp; &nbsp; &nbsp;  Pt &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;    ! elements
    
-   1 &nbsp; &nbsp; &nbsp;   2 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; !num of each element
+   1 &nbsp; &nbsp; &nbsp;   2 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! num of each element
      
 Selective dynamics &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! for relaxing some coordinates, F=fixed, T=relax
 
@@ -173,8 +173,34 @@ Cartesian &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! direct (fracti
 
 ## **POTCAR**:
 
+* It contains information regarding the psuedopotential of all atoms in the system which can be found in **VASP** psuedopotential directory. Make sure that the order of atoms in **POTCAR** is the same as **POSCAR**.
+
 ## **KPOINTS**:
 
+K-Points       &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;      ! comment
+0              &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;      ! 0 = automatic generation of k-points
+Monkhorst Park &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;      ! M use Monkhorst Pack OR Gamma (gamma centered grid)
+1  1  1   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;           ! grid 1x1x1 (subdivision along each rec lattice vec.)
+0  0  0   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;           ! shift (usually 0 0 0) = origin of the k-mesh, M-P without shift = Gamma with a 0.5 0.5 0.5 shift
+
+* For very large mesh it takes a lot of cpu-time to generate the mesh. Therefore if you want to use the same k-mesh very frequently do the automatic generation only once and copy the file IBZKPT to the file KPOINTS.
+
+### For band structure calculation manually:
+
+K-Points     &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! comment
+40           &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! 40 intersections: 10 points between each gamma/X/W
+Line-mode    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        
+cart         &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! cartesian or reciprocal
+ 0   0   0   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! gamma
+ 0   0   1   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! X
+ 
+ 0   0   1   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! X
+ 0.5 0   1   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! W
+
+ 0.5 0   1   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! W
+ 0   0   1   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! gamma
+
+* This particular mode is useful for the calculation of band-structures. When band structures are calculated, it is required to perform a fully self-consistent calculation with a full k-point grid first, and to perform a non-selfconsistent calculation next (with using e.g. ICHARG=11; see Band Structure Calculations).
 
 ## **Bader Charge Calculations**:
 
@@ -186,7 +212,7 @@ Cartesian &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! direct (fracti
 
 * Once the calculation is done to extract the charges you need vtst-scripts in **VASPHOME**:
 * ./chgsum.pl AECCAR0 AECCAR2
-* ./bader CHGCAR -ref CHGCAR_sum
+* ./bader -vac off CHGCAR -ref CHGCAR_sum
 
 ## **AIMD Calculations**:
 
@@ -249,19 +275,21 @@ Cartesian &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! direct (fracti
 
 ## **Work Function Calculations**:
 
-LVTOT  = .TRUE.        | to generate a LOCPOT-file |
+* LVTOT  = .TRUE., to generate a LOCPOT-file
 
-IDIPOL = 3             | dipole correction in all x,y,z |
+* IDIPOL = 3, dipole correction in all x,y,z
 
-LDIPOL = .TRUE.
+* LDIPOL = .TRUE.
 
-LVHAR  = .TRUE.        | so that the LOCPOT contains only the electrostatic potential
-                         and not the entire local potential |
+* LVHAR  = .TRUE., So that the LOCPOT contains only the electrostatic potential and not the entire local potential.
 
 ## **Solvation Calculations**:
 
-LSOL = .TRUE.
-LAMBDA_D_K = 3.0      | Debye screening length |
-EB_K = 78.4           | Relative permittivity of water |
-TAU = 0               | Effective cavity surface tension |                         
+* LSOL = .TRUE.
+
+* LAMBDA_D_K = 3.0, Debye screening length
+
+* EB_K = 78.4, Relative permittivity of water
+
+* TAU = 0, Effective cavity surface tension
 
