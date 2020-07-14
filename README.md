@@ -150,7 +150,103 @@ In order to run **VASP**, you need 4 input files: **INCAR** (contains calculatio
 ## **KPOINTS**:
 
 
+## **Bader Charge Calculations**:
+
+LAECHG = .TRUE.        | for Bader charge analysis;
+                         the core charge will be written so that it would be used in Bader |
+                         In quantum espresso it is recommended to perform
+                         the bader analysis only if PAW pseudopotentials are employed.
+                         I made some test using QE and ultra-soft pseudopotentials
+                         (what we usually use) and VASP with PAW pseudop.
+                         The results are very similar.
+                         However, for VASP there is a correction to consider also the core electrons.
+                         In this case I obtained different results (and they make more sense),
+                         specially with atoms such as B or Al.
+                         So, I think this is the best way to proceed:
+
+                         To use this correction you need to include in your INCAR file:
+                         LAECHG=.TRUE.
+
+                         Once the calculation is done:
+                         ./chgsum.pl AECCAR0 AECCAR2
+                         ./bader CHGCAR -ref CHGCAR_sum
+
+## **AIMD Calculations**:
+
+
+                       | For a molecular dynamics, we recommend the use of PREC=Normal,
+                         although PREC=Low yields often satisfactory results.                                  
+MAXMIX = 40            | reuse mixer from one MD step to next
+
+NELMIN = 4             | minimum 4 steps per time step, avoid breaking after 2 steps |
+
+IBRION = 0
+LREAL = A
+NSW = 10000
+NWRITE = 0
+LCHARG = .FALSE.
+LWAVE = .FALSE.
+TEBEG =   2000         | Temperature begin |
+TEEND =  2000          | Temperature end |
+
+SMASS >= 0              | canonical (Nose) MD with XDATCAR updated every 50 steps |
+NBLOCK = 50
+POTIM = 1.0            | timestep in fs |
+
+SMASS = -1             | micro canonical MD with temperature scaling every 50 steps |
+NBLOCK = 50
+POTIM = 1.0
+
+IWAVPR = 12            | determines how orbitals and/or charge densities are extrapolated
+                         from one ionic configuration to the next configuration.
+                         MD=12, relax=11 |
+
+                       | Use ALGO=Very Fast (RMM-DIIS for electrons) for large molecular dynamics runs.
+                         For surface or difficult systems, you might need to increase this
+                         value to NELMIN = 8. |
+
+## **NEB Calculations**:
+
+
+IBRION = 1            | recommended |
+ALGO   = fast
+
+ICHAIN = 0            | (int) Indicates which method to run.
+                         NEB (ICHAIN=0) is the default |
+
+IMAGES = 5            | (int) Number of NEB images between the fixed endpoints |
+
+SPRING = -5.0         | (float) The spring constant, in eV/Ang^2 between the images;
+                        negative value turns on nudging |
+
+LCLIMB = .TRUE.       | Flag to turn on the climbing image algorithm |
+
+LTANGENTOLD = .FALSE. | Flag to turn on the old central difference tangent |
+
+LDNEB = .FALSE.       | Flag to turn on modified double nudging |
+
+LNEBCELL = .FALSE.    | Flag to turn on SS-NEB. Used with ISIF=3 and IOPT=3. |
+
+JACOBIAN              | (Ω/N)^{1/3}N^{1/2}(real) Controls weight of lattice to atomic motion.
+                        Ω is volume and N is the number of atoms. |
 
 ## **Band Structure Calculations**:
 
+## **Work Function Calculations**:
+
+LVTOT  = .TRUE.        | to generate a LOCPOT-file |
+
+IDIPOL = 3             | dipole correction in all x,y,z |
+
+LDIPOL = .TRUE.
+
+LVHAR  = .TRUE.        | so that the LOCPOT contains only the electrostatic potential
+                         and not the entire local potential |
+
+## **Solvation Calculations**:
+
+LSOL = .TRUE.
+LAMBDA_D_K = 3.0      | Debye screening length |
+EB_K = 78.4           | Relative permittivity of water |
+TAU = 0               | Effective cavity surface tension |                         
 
