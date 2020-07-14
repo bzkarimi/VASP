@@ -12,13 +12,9 @@ In order to run **VASP**, you need 4 input files: **INCAR** (contains calculatio
 
 * | 0=new, 1=continue from WAVECAR with const E cut-off, 2=continue from WAVECAR with const basis |
 
-&nbsp;&nbsp;
-
 2. **ICHARG** = Initial guess of charge density           
 
 * | 0=from orbitals, 1=read from CHGCAR, 2=from atomic charges, +10=non-scf(const), 11=to get evalue for band plots or DOS read from CHGCAR |
-
-&nbsp;&nbsp; 
 
 3. **LCHARG** = Whether to save CHGCAR or not       
 
@@ -30,21 +26,62 @@ In order to run **VASP**, you need 4 input files: **INCAR** (contains calculatio
 
 6. **LREAL**  = Real space projection 
 
-| .FALSE. or .AUTO. |
+* | .FALSE. or .AUTO. |
 
-**Note:**: For large supercells or hybrid functionals 'Auto' is recommended (faster with a negligible loss in accuracy)
+* **Note:**: For large supercells or hybrid functionals 'Auto' is recommended (faster with a negligible loss in accuracy).
 
-ISMEAR = 0             | 0=gaussian, -1=fermi, -4=tetrahedron, -5=blochl |
+7. **ISMEAR** = Smearing method             
 
-SIGMA  = 0.1           | broadening in eV (width of smearing)
-                       | For the calculations of the DOS and very accurate total energy calculations
-                        (no relaxation in metals) use the tetrahedron method (ISMEAR=-5) |
+* | 0=gaussian, -1=fermi, -4=tetrahedron, -5=blochl |
 
-NELM   = 100           | num of electronic relaxation steps |
+8. **SIGMA**  = Broadening of Smearing in eV (width of smearing)
 
-NELMIN = 5             | min electronic relaxation steps between each ionic update |
+* | 0.1 |
 
-NELMDL = -5            | no update of charge for 3 steps, 0=immediately update |
+* **Note**: For calculating DOS and very accurate total energy calculations (no relaxation in metals) use the tetrahedron method (ISMEAR=-5).
+
+9. **NELM**   = Num of electronic relaxation steps (SCF)
+
+10. **NELMIN** = Min electronic relaxation steps that should be done between each ionic (geometric) update.
+
+11. **EDIFF**  = Stopping criteria for ELM (electronic minimization, SCF)
+
+* | 1e-6 |
+
+12. **IBRION** = Relaxation method            
+
+* | 0=MD run, 1=quasi new(RMM-DIIS for geom opt)RECOMMENDED FOR NEB, 2=CG algorithm(for hard relaxation), -1=static, 5-8=freq; 7,8 using DFTPT; 5,6 using finite displacement, 6,8 with sym; 5,7 w/o sym |  
+
+* **Note**: For difficult relaxation problems it is recommended to use the conjugate gradient algorithm (IBRION=2).
+
+* **Note**: Damped molecular dynamics (IBRION=3) are often useful when starting from very bad initial guesses.
+
+* **Note**: Close to the local minimum the RMM-DIIS (IBRION=1) is usually the best choice.
+
+13. **EDIFFG** = Stopping criteria for ionic (geometric) relaxation, IOM (geometry optimizations)
+
+* | Default : EDIFFx10, recommended: -0.01 |
+
+* **Note**: If EDIFFG is negative it has a different meaning: In this case the relaxation will stop if all forces are small than the  |EDIFFG|. This is usually a more convenient setting. EDIFFG does not apply for MD-simulations.
+
+14. **NSW** = Num of steps for ionic relaxtion(geometry).
+
+15. **ALGO**   = Algorithm used for SCF (electronic minimization)         
+
+* | Normal=Davidson, Fast=RMM, Very Fast=RMM-DIIS, All=good for hybrid functionals |
+
+16. **ISPIN**  = Whether the calculation is spin polarized or not             
+
+* | 2=spin polarized, 1=no |
+
+17. **NUPDOWN** = Num of e with spin up - spin down = -1(default,full relaxation)
+
+*| 0-singlet, 1-doublet, etc  |
+
+18. **ISIF**   = Used for relaxing the unit cell           
+
+* | 2=relax ions only, 3=ions + volume |
+
 
 ## **POSCAR**:
 
