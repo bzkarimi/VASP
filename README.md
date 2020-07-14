@@ -22,13 +22,13 @@ In order to run **VASP**, you need 4 input files: **INCAR** (contains calculatio
 
 4. **SYSTEM** = Name of the system ( for example pt4sn3-sio2)
 
-5. **ENCUT**  = Plane Wave cut-off Eenergy in eV 
+5. **ENCUT**  = Plane Wave cut-off Energy in eV 
 
 6. **LREAL**  = Real space projection 
 
 * | .FALSE. or .AUTO. |
 
-* **Note:**: For large supercells or hybrid functionals 'Auto' is recommended (faster with a negligible loss in accuracy).
+* **Note**: For large supercells or hybrid functionals 'Auto' is recommended (faster with a negligible loss in accuracy).
 
 7. **ISMEAR** = Smearing method             
 
@@ -36,7 +36,7 @@ In order to run **VASP**, you need 4 input files: **INCAR** (contains calculatio
 
 8. **SIGMA**  = Broadening of Smearing in eV (width of smearing)
 
-* | 0.1 |
+* | recommended: 0.1 |
 
 * **Note**: For calculating DOS and very accurate total energy calculations (no relaxation in metals) use the tetrahedron method (ISMEAR=-5).
 
@@ -46,7 +46,7 @@ In order to run **VASP**, you need 4 input files: **INCAR** (contains calculatio
 
 11. **EDIFF**  = Stopping criteria for ELM (electronic minimization, SCF)
 
-* | 1e-6 |
+* | recommended: 1e-6 |
 
 12. **IBRION** = Relaxation method            
 
@@ -76,12 +76,64 @@ In order to run **VASP**, you need 4 input files: **INCAR** (contains calculatio
 
 17. **NUPDOWN** = Num of e with spin up - spin down = -1(default,full relaxation)
 
-*| 0-singlet, 1-doublet, etc  |
+* | 0-singlet, 1-doublet, etc  |
 
 18. **ISIF**   = Used for relaxing the unit cell           
 
 * | 2=relax ions only, 3=ions + volume |
 
+19. **LORBIT** = Density of States calculations            
+
+* | use 11 for projected DOS, LORBIT<10, the spd- and site projected wavefunction character of each band is, evaluated, and the local partial DOS is calculated. LORBIT>=10, RWIG is ignored, works only for PAW method |
+
+
+20. **PREC**   = Precision of the calculation        
+
+* | Accurate or Normal |
+
+21. **LWAVE**  = Save Wavecar or not       
+
+* | .FALSE. or .TRUE. |
+
+22. **POTIM**  = Trial step, time-step for ion-motion in MD calculations in fs
+
+23. **IVDW**   = VDW correction 
+
+* | recommended: 11 |
+
+======================
+     Functionals
+======================
+
+24. **GGA** = Override the type of density functional specified in the POTCAR
+
+* | default: PBE = PE |
+
+25. **LHFCALC** = Switch on Hybrid and Hartree-Fock type calculations
+
+* | .FALSE. or .TRUE. |
+
+* **Note**: HF in VASP:
+* LHFCALC = .TRUE.       
+* AEXX = 1.0   
+* ALDAC = 0.0  
+* AGGAC = 0    
+
+* **Note**: B3LYP in VASP:
+* LHFCALC = .TRUE.       
+* GGA = B3               
+* AEXX = 0.2             
+* AGGAX = 0.72           
+* AGGAC = 0.81
+* ALDAC = 0.19
+
+* **Note**: PBE0 in VASP:
+* GGA = PE          
+* LHFCALC = .TRUE.  
+
+* **Note**: HSE06 in VASP:
+* LHFCALC = .TRUE.  
+* HFSCREEN = 0.2  
 
 ## **POSCAR**:
 
