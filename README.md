@@ -393,6 +393,16 @@ Reciprocal lattice
 
 * LVHAR  = .TRUE., So that the LOCPOT contains only the electrostatic potential and not the entire local potential.
 
+* To Analyze, download these scripts:  https://github.com/bzkarimi/Scripts/tree/master/VASP/work-function
+
+* To analyze **LOCPOT** on Mac, run the exe file. usage of simple utility vtotav gives planar average of the potential. You will get vplanar.txt.
+
+* To analyze **LOCPOT** on Linux: gfortran workfunction_v2.f -o wf.x
+
+* And then 'path to wf.x'/wf.x in your **LOCPOT** dir.
+
+* work function = E_vac - E_fermi(from **OUTCAR**)
+
 ## **Solvation Calculations**:
 
 * LSOL = .TRUE.
