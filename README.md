@@ -178,29 +178,41 @@ Cartesian &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! direct (fracti
 ## **KPOINTS**:
 
 K-Points       &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;      ! comment
+
 0              &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;      ! 0 = automatic generation of k-points
+
 Monkhorst Park &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;      ! M use Monkhorst Pack OR Gamma (gamma centered grid)
+
 1  1  1   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;           ! grid 1x1x1 (subdivision along each rec lattice vec.)
-0  0  0   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;           ! shift (usually 0 0 0) = origin of the k-mesh, M-P without shift = Gamma with a 0.5 0.5 0.5 shift
+
+0  0  0   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;           ! shift (usually 0 0 0) = origin of the k-mesh, M-P without shift = Gamma with a 0.5 0.5 
+0.5 shift
 
 * For very large mesh it takes a lot of cpu-time to generate the mesh. Therefore if you want to use the same k-mesh very frequently do the automatic generation only once and copy the file IBZKPT to the file KPOINTS.
 
-### For band structure calculation manually:
+### For band structure calculations:
 
 K-Points     &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! comment
+
 40           &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! 40 intersections: 10 points between each gamma/X/W
+
 Line-mode    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        
+
 cart         &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! cartesian or reciprocal
+
  0   0   0   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! gamma
+ 
  0   0   1   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! X
  
  0   0   1   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! X
+ 
  0.5 0   1   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! W
 
  0.5 0   1   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! W
+ 
  0   0   1   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! gamma
 
-* This particular mode is useful for the calculation of band-structures. When band structures are calculated, it is required to perform a fully self-consistent calculation with a full k-point grid first, and to perform a non-selfconsistent calculation next (with using e.g. ICHARG=11; see Band Structure Calculations).
+* This particular mode is useful for the calculation of band-structures. When band structures are calculated, it is required to perform a fully self-consistent calculation with a full k-point grid first, and to perform a non-selfconsistent calculation next (with using e.g. ICHARG=11; **see Band Structure Calculations**).
 
 ## **Bader Charge Calculations**:
 
