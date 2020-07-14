@@ -102,7 +102,9 @@ In order to run **VASP**, you need 4 input files: **INCAR** (contains calculatio
 * | recommended: 11 |
 
 ======================
+
      Functionals
+     
 ======================
 
 24. **GGA** = Override the type of density functional specified in the POTCAR
@@ -113,13 +115,13 @@ In order to run **VASP**, you need 4 input files: **INCAR** (contains calculatio
 
 * | .FALSE. or .TRUE. |
 
-* **Note**: HF in VASP:
+* **HF** Setting:
 * LHFCALC = .TRUE.       
 * AEXX = 1.0   
 * ALDAC = 0.0  
 * AGGAC = 0    
 
-* **Note**: B3LYP in VASP:
+* **B3LYP** Functional Setting:
 * LHFCALC = .TRUE.       
 * GGA = B3               
 * AEXX = 0.2             
@@ -127,11 +129,11 @@ In order to run **VASP**, you need 4 input files: **INCAR** (contains calculatio
 * AGGAC = 0.81
 * ALDAC = 0.19
 
-* **Note**: PBE0 in VASP:
+* **PBE0** Functional Setting:
 * GGA = PE          
 * LHFCALC = .TRUE.  
 
-* **Note**: HSE06 in VASP:
+* **HSE06** Functional Setting:
 * LHFCALC = .TRUE.  
 * HFSCREEN = 0.2  
 
