@@ -145,23 +145,23 @@ In order to run **VASP**, you need 4 input files: **INCAR** (contains calculatio
 
 ## **POSCAR**:
 
-Pt2Si cluster isolated from MgO &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; comment line
+Pt2Si cluster isolated from MgO &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! comment line
 
-   1.00000000000000                                                  universal scaling factor
+   1.00000000000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! universal scaling factor
    
-    12.6256980228000000    0.0000000000000000    0.0000000000000000  first  Bravais lattice vector
+   12.6256980228000000    0.0000000000000000    0.0000000000000000  ! first  Bravais lattice vector
     
-     0.0000000000000000   12.6256980228000000    0.0000000000000000  second Bravais lattice vector
+    0.0000000000000000   12.6256980228000000    0.0000000000000000  ! second Bravais lattice vector 
+    
+    0.0000000000000000    0.0000000000000000   30.0000000000000000  ! third  Bravais lattice vector
      
-     0.0000000000000000    0.0000000000000000   30.0000000000000000  third  Bravais lattice vector
-     
-   Si    Pt                                                          elements
+   Si    Pt &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;    ! elements
    
-     1    2                                                          num of each element
+     1    2 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; num of each element
      
-Selective dynamics                                                   for relaxing some coordinates, F=fixed, T=relax
+Selective dynamics &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! for relaxing some coordinates, F=fixed, T=relax
 
-Cartesian                                                            direct or cart (only first letter is significant)
+Cartesian &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! direct or cart (only first letter is significant)
 
  4.210900000000    4.218200000000   12.610000000000       F     F    T
  
