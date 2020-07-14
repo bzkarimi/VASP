@@ -149,25 +149,25 @@ Pt2Si cluster isolated from MgO &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &
 
    1.00000000000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! universal scaling factor
    
-   12.6256980228000000    0.0000000000000000    0.0000000000000000  ! first  Bravais lattice vector
-    
-    0.0000000000000000   12.6256980228000000    0.0000000000000000  ! second Bravais lattice vector 
-    
-    0.0000000000000000    0.0000000000000000   30.0000000000000000  ! third  Bravais lattice vector
-     
-   Si    Pt &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;    ! elements
+   12.6256980228000000    0.0000000000000000    0.0000000000000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! first  Bravais lattice vector
    
-     1    2 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; num of each element
+   0.0000000000000000   12.6256980228000000    0.0000000000000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  ! second Bravais lattice vector
+   
+   0.0000000000000000    0.0000000000000000   30.0000000000000000  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! third  Bravais lattice vector
+     
+   Si  &nbsp; &nbsp; &nbsp;  Pt &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;    ! elements
+   
+   1    2 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; num of each element
      
 Selective dynamics &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! for relaxing some coordinates, F=fixed, T=relax
 
 Cartesian &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! direct or cart (only first letter is significant)
 
- 4.210900000000    4.218200000000   12.610000000000       F     F    T
+ 4.210900000000  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  4.218200000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  12.610000000000  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;     F     F    T
  
- 6.205100000000    4.215700000000   13.363500000000       T     T    F
+ 6.205100000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;   4.215700000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  13.363500000000  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;     T     T    F
  
- 2.216900000000    4.239300000000   13.364400000000       F     F    F
+ 2.216900000000  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  4.239300000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  13.364400000000   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;    F     F    F
 
 * The positions can be given in direct (fractional) or Cartesian coordinates. Note that the lattice vectors are always scaled by the universal scaling factor.
 
