@@ -10,7 +10,7 @@ In order to run **VASP**, you need 4 input files: **INCAR** (contains calculatio
 
 1. **ISTART** = Initial guess of the orbitals
 
-| 0=new, 1=continue from WAVECAR with const E cut-off, 2=continue from WAVECAR with const basis |
+&nbsp;&nbsp; | 0=new, 1=continue from WAVECAR with const E cut-off, 2=continue from WAVECAR with const basis |
 
 2. **ICHARG** = Initial guess of charge density           
 
