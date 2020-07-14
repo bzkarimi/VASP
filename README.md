@@ -16,7 +16,8 @@ In order to run **VASP**, you need 4 input files: **INCAR** (contains calculatio
 
 2. **ICHARG** = Initial guess of charge density           
 
-| 0=from orbitals, 1=read from CHGCAR, 2=from atomic charges, +10=non-scf(const), 11=to get evalue for band plots or DOS read from CHGCAR |
+&nbsp;&nbsp; | 0=from orbitals, 1=read from CHGCAR, 2=from atomic charges, +10=non-scf(const), 11=to get evalue for band plots or DOS read from CHGCAR |
+&nbsp;&nbsp;
 
 3. **LCHARG** = Whether to save CHGCAR or not       
 
