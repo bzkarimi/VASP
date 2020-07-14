@@ -285,7 +285,7 @@ cart         &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! cart
 
 ## **Band Structure Calculations**:
 
-1. PBE functional
+### PBE functional
 
 * **Step 1**: Perform a relaxation calculation first
 
@@ -293,14 +293,17 @@ cart         &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! cart
 
 * **Step 3**: Perform a non-SCF calculation by fixing the charge density: ICHARG = 11
 
+&nbsp; &nbsp; &nbsp;
 
-2. Hybrid functional such as PBE0/HSE06: Some special care is needed. 
+
+### Hybrid functional such as PBE0/HSE06: Some special care is needed. 
 
 * **Step 0**: Relax the structure with PBE and save **WAVECAR**.
 
 * **Step 1**: Perform SCF with PBE0
 
 * Always start with a GGA WAVECAR such as PBE as your initial guess.
+
 * Perform a large enough k-point single point calculation and save **WAVECAR** and **CHGCAR**
 
 * **Step 2**: Perform Non-SCF with PBE0 (using the **WAVECAR** and fixing the charge density (CHGCAR) from step 1)
@@ -309,7 +312,7 @@ cart         &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! cart
 
 * Edit **KPOINTS** by adding the desired points but with 0 weight.
 
-* Set NELMIN to at least 5 in INCAR to make sure that zero weight k-points do not enter the convergence criterion
+* Set NELMIN to at least 5 in INCAR to make sure that zero weight k-points do not enter the convergence criterion.
 
 * Set ALGO = NORMAL
 
@@ -317,6 +320,68 @@ cart         &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;        ! cart
 
 * You can split the band structure calculations in segments (instead of doing the whole path at the same time) and run separately.
 
+&nbsp; &nbsp; &nbsp;
+
+
+### Sample KPOINTS for hybrid functional (Step 2)
+
+Automatically generated mesh (gamma-K)
+
+      26
+      
+Reciprocal lattice
+
+    0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         1
+    
+    0.09090909090909 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
+    
+    0.18181818181818 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
+    
+    0.27272727272727 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
+    
+    0.36363636363636 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
+    
+    0.45454545454546 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
+    
+    0.09090909090909 &nbsp; &nbsp; &nbsp;   0.09090909090909 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
+    
+    0.18181818181818 &nbsp; &nbsp; &nbsp;   0.09090909090909 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;        12
+    
+    0.27272727272727 &nbsp; &nbsp; &nbsp;   0.09090909090909 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;        12
+    
+    0.36363636363636 &nbsp; &nbsp; &nbsp;   0.09090909090909 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;        12
+    
+    0.45454545454546 &nbsp; &nbsp; &nbsp;   0.09090909090909 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
+    
+    0.18181818181818 &nbsp; &nbsp; &nbsp;   0.18181818181818 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
+    
+    0.27272727272727 &nbsp; &nbsp; &nbsp;   0.18181818181818 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;        12
+    
+    0.36363636363636 &nbsp; &nbsp; &nbsp;   0.18181818181818 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;        12
+    
+    0.27272727272727 &nbsp; &nbsp; &nbsp;   0.27272727272727 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
+    
+    0.36363636363636 &nbsp; &nbsp; &nbsp;   0.27272727272727 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         6
+    
+    0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0 
+    
+    0.03703703703704 &nbsp; &nbsp; &nbsp;   0.03703703703704 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0 
+    
+    0.07407407407407 &nbsp; &nbsp; &nbsp;   0.07407407407407 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0
+    
+    0.11111111111111 &nbsp; &nbsp; &nbsp;   0.11111111111111 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0
+    
+    0.14814814814814 &nbsp; &nbsp; &nbsp;   0.14814814814814 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0
+    
+    0.18518518518518 &nbsp; &nbsp; &nbsp;   0.18518518518518 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0
+    
+    0.22222222222222 &nbsp; &nbsp; &nbsp;   0.22222222222222 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0
+    
+    0.25925925925926 &nbsp; &nbsp; &nbsp;   0.25925925925926 &nbsp; &nbsp; &nbsp;   0.00000000000000    &nbsp; &nbsp; &nbsp;         0
+    
+    0.29629629629629 &nbsp; &nbsp; &nbsp;   0.29629629629629 &nbsp; &nbsp; &nbsp;   0.00000000000000     &nbsp; &nbsp; &nbsp;        0
+    
+    0.33333333333333 &nbsp; &nbsp; &nbsp;   0.33333333333333 &nbsp; &nbsp; &nbsp;   0.00000000000000     &nbsp; &nbsp; &nbsp;        0
 
 ## **Work Function Calculations**:
 
