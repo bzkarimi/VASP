@@ -103,7 +103,7 @@ In order to run **VASP**, you need 4 input files: **INCAR** (contains calculatio
 
 &nbsp; &nbsp;
 
-#### **Functionals**:
+### **Functionals**:
 
 &nbsp; &nbsp;
 
