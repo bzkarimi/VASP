@@ -149,25 +149,25 @@ Pt2Si cluster isolated from MgO &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &
 
    1.00000000000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! universal scaling factor
    
-   12.6256980228000000    0.0000000000000000    0.0000000000000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! first  Bravais lattice vector
+   12.6256980228000000  &nbsp; &nbsp; &nbsp;  0.0000000000000000  &nbsp; &nbsp; &nbsp;  0.0000000000000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! first  Bravais lattice vector
    
-   0.0000000000000000   12.6256980228000000    0.0000000000000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  ! second Bravais lattice vector
+   0.0000000000000000 &nbsp; &nbsp; &nbsp;  12.6256980228000000 &nbsp; &nbsp; &nbsp;   0.0000000000000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  ! second Bravais lattice vector
    
-   0.0000000000000000    0.0000000000000000   30.0000000000000000  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! third  Bravais lattice vector
+   0.0000000000000000  &nbsp; &nbsp; &nbsp;  0.0000000000000000 &nbsp; &nbsp; &nbsp;  30.0000000000000000  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! third  Bravais lattice vector
      
    Si  &nbsp; &nbsp; &nbsp;  Pt &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;    ! elements
    
-   1    2 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; num of each element
+   1 &nbsp; &nbsp; &nbsp;   2 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; num of each element
      
 Selective dynamics &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! for relaxing some coordinates, F=fixed, T=relax
 
-Cartesian &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! direct or cart (only first letter is significant)
+Cartesian &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; ! direct (fractional) or cartesian (only first letter is significant)
 
- 4.210900000000  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  4.218200000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  12.610000000000  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;     F     F    T
+ 4.210900000000  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  4.218200000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  12.610000000000  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;     F &nbsp; &nbsp; &nbsp;    F    T
  
- 6.205100000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;   4.215700000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  13.363500000000  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;     T     T    F
+ 6.205100000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;   4.215700000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  13.363500000000  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;     T &nbsp; &nbsp; &nbsp;    T  &nbsp; &nbsp; &nbsp;  F
  
- 2.216900000000  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  4.239300000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  13.364400000000   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;    F     F    F
+ 2.216900000000  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  4.239300000000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  13.364400000000   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;    F &nbsp; &nbsp; &nbsp;    F  &nbsp; &nbsp; &nbsp;  F
 
 * The positions can be given in direct (fractional) or Cartesian coordinates. Note that the lattice vectors are always scaled by the universal scaling factor.
 
@@ -199,62 +199,60 @@ LAECHG = .TRUE.        | for Bader charge analysis;
 
 ## **AIMD Calculations**:
 
+* For MD, we recommend the use of PREC=Normal although PREC=Low yields often satisfactory results.                                  
 
-                       | For a molecular dynamics, we recommend the use of PREC=Normal,
-                         although PREC=Low yields often satisfactory results.                                  
-MAXMIX = 40            | reuse mixer from one MD step to next
+* MAXMIX = 40, Reuse mixer from one MD step to next
 
-NELMIN = 4             | minimum 4 steps per time step, avoid breaking after 2 steps |
+* NELMIN = 4, Minimum 4 steps per time step, avoid breaking after 2 steps
 
-IBRION = 0
-LREAL = A
-NSW = 10000
-NWRITE = 0
-LCHARG = .FALSE.
-LWAVE = .FALSE.
-TEBEG =   2000         | Temperature begin |
-TEEND =  2000          | Temperature end |
+* IBRION = 0
 
-SMASS >= 0              | canonical (Nose) MD with XDATCAR updated every 50 steps |
-NBLOCK = 50
-POTIM = 1.0            | timestep in fs |
+* LREAL = A
 
-SMASS = -1             | micro canonical MD with temperature scaling every 50 steps |
-NBLOCK = 50
-POTIM = 1.0
+* NSW = 10000
 
-IWAVPR = 12            | determines how orbitals and/or charge densities are extrapolated
-                         from one ionic configuration to the next configuration.
-                         MD=12, relax=11 |
+* NWRITE = 0
 
-                       | Use ALGO=Very Fast (RMM-DIIS for electrons) for large molecular dynamics runs.
-                         For surface or difficult systems, you might need to increase this
-                         value to NELMIN = 8. |
+* LCHARG = .FALSE.
+
+* LWAVE = .FALSE.
+
+* TEBEG =   2000, Temperature begin
+
+* TEEND =  2000, Temperature end
+
+* SMASS = 0, -1,  0 = NVT-canonical (Nose) MD, -1 = NVE-micro canonical MD with temperature scaling every 50 steps
+
+* NBLOCK = 50
+
+* POTIM = 1.0, timestep in fs
+
+* POTIM = 1.0
+
+* IWAVPR = 12, Determines how orbitals and/or charge densities are extrapolated from one ionic configuration to the next configuration. MD=12, relax=11
+
+* **Note**: Use ALGO=Very Fast (RMM-DIIS for electrons) for large molecular dynamics runs.For surface or difficult systems, you might need to increase NELMIN = 8.
 
 ## **NEB Calculations**:
 
+* IBRION = 1, recommended
 
-IBRION = 1            | recommended |
-ALGO   = fast
+* ALGO   = fast
 
-ICHAIN = 0            | (int) Indicates which method to run.
-                         NEB (ICHAIN=0) is the default |
+* ICHAIN = 0, (int) Indicates which method to run. NEB (ICHAIN=0) is the default.
 
-IMAGES = 5            | (int) Number of NEB images between the fixed endpoints |
+* IMAGES = 5, (int) Number of NEB images between the fixed endpoints.
 
-SPRING = -5.0         | (float) The spring constant, in eV/Ang^2 between the images;
-                        negative value turns on nudging |
+* SPRING = -5.0, (float) The spring constant, in eV/Ang^2 between the images; negative value turns on nudging
 
-LCLIMB = .TRUE.       | Flag to turn on the climbing image algorithm |
+* LCLIMB = .TRUE., Flag to turn on the climbing image algorithm (CI-NEB)
 
-LTANGENTOLD = .FALSE. | Flag to turn on the old central difference tangent |
+* LTANGENTOLD = .FALSE., Flag to turn on the old central difference tangent
 
-LDNEB = .FALSE.       | Flag to turn on modified double nudging |
+* LDNEB = .FALSE., Flag to turn on modified double nudging
 
-LNEBCELL = .FALSE.    | Flag to turn on SS-NEB. Used with ISIF=3 and IOPT=3. |
+* LNEBCELL = .FALSE., Flag to turn on SS-NEB. Used with ISIF=3 and IOPT=3.
 
-JACOBIAN              | (Ω/N)^{1/3}N^{1/2}(real) Controls weight of lattice to atomic motion.
-                        Ω is volume and N is the number of atoms. |
 
 ## **Band Structure Calculations**:
 
